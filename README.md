@@ -34,7 +34,7 @@ $ node .output/server/index.mjs
 
 ```
 
-## Build Setup Frontend
+## Build Setup Backend
 
 ```bash
 # serve at localhost:8080
