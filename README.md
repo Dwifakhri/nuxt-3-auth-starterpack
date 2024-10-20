@@ -1,75 +1,43 @@
-# Nuxt 3 Minimal Starter
+# Nuxt 3 Auth Local Provider
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+> Nuxt Auth Local Provider powered by Nuxt 3 and Sidebase. This project shows the starter pack kit for authentication with sidebase nuxt auth (local provider). (https://nuxt.com/) (https://auth.sidebase.io/)
 
-## Setup
+## Demo
 
-Make sure to install the dependencies:
+<!-- ![Demo](https://path-to-your-gif.gif) -->
 
-```bash
-# npm
-npm install
+## Pre-requisites
 
-# pnpm
-pnpm install
+Check the following requirement :
 
-# yarn
-yarn install
+- Node JS v18.15.0 (recommended using nvm)
+- Bun v1.1.7 (https://bun.sh/)
+- Backend server
 
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
+## Build Setup Frontend
 
 ```bash
-# npm
-npm run dev
+# copy .env.example to .env file and set API URL for database
+$ cp .env.example .env
 
-# pnpm
-pnpm run dev
+# install dependencies
+$ bun install
 
-# yarn
-yarn dev
+# serve with hot reload at localhost:3000
+$ bun run dev
 
-# bun
-bun run dev
+or
+
+# build for production and launch server
+$ bun run build
+$ node .output/server/index.mjs
+
 ```
 
-## Production
-
-Build the application for production:
+## Build Setup Frontend
 
 ```bash
-# npm
-npm run build
+# serve at localhost:8080
+$ node server.js
 
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
 ```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
