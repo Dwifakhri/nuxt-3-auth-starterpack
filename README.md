@@ -4,7 +4,7 @@
 
 ## Demo
 
-<!-- ![Demo](https://path-to-your-gif.gif) -->
+![Demo](https://github.com/Dwifakhri/nuxt-3-auth-starterpack/blob/master/demo.mkv)
 
 ## Pre-requisites
 
