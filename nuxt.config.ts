@@ -41,15 +41,15 @@ export default defineNuxtConfig({
       },
     },
   },
-  sitemap: {
-    exclude: ["/"],
-  },
+  // sitemap: {
+  //   // exclude: ["/"],
+  // },
   robots: {
     groups: [
       {
         userAgent: "*",
-        allow: ["/", "/login"],
-        comment: "Disabled specific URL",
+        disallow: ["/login"],
+        comment: ["Disabled specific URL"],
       },
     ],
     sitemap: `${process.env.FE_APP_URL}sitemap.xml`,
