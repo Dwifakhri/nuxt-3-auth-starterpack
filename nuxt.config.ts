@@ -48,7 +48,7 @@ export default defineNuxtConfig({
     groups: [
       {
         userAgent: "*",
-        disallow: ["/", "/login"],
+        allow: ["/", "/login"],
         comment: "Disabled specific URL",
       },
     ],
