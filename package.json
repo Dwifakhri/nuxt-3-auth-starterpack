@@ -11,6 +11,8 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@nuxtjs/robots": "^5.0.1",
+    "@nuxtjs/sitemap": "^7.0.0",
     "@sidebase/nuxt-auth": "^0.8.0",
     "@vue/test-utils": "^2.4.0-alpha.2",
     "bcrypt": "^5.1.1",

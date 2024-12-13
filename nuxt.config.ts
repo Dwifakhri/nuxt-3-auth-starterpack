@@ -19,7 +19,7 @@ export default defineNuxtConfig({
     },
   },
   css: ["~/assets/css/index.css"],
-  modules: ["@sidebase/nuxt-auth"],
+  modules: ["@sidebase/nuxt-auth", "@nuxtjs/robots", "@nuxtjs/sitemap"],
   auth: {
     globalAppMiddleware: {
       isEnabled: false,
@@ -41,4 +41,17 @@ export default defineNuxtConfig({
       },
     },
   },
-})
+  sitemap: {
+    exclude: ["/"],
+  },
+  robots: {
+    groups: [
+      {
+        userAgent: "*",
+        disallow: ["/"],
+        comment: "Disabled specific URL",
+      },
+    ],
+    sitemap: `${process.env.FE_APP_URL}sitemap.xml`,
+  },
+});
