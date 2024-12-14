@@ -41,9 +41,47 @@ export default defineNuxtConfig({
       },
     },
   },
-  // sitemap: {
-  //   // exclude: ["/"],
-  // },
+  site: {
+    indexable: process.env.ENV_MODE === "production",
+  },
+  sitemap: {
+    sitemaps: {
+      pages: {
+        urls: ["/", "/guest"].map((item) => ({
+          loc: item,
+          priority: 0.5,
+          changefreq: "weekly",
+          lastmod: new Date().toISOString(),
+        })),
+      },
+      blogs: {
+        urls: async () => {
+          try {
+            const response = await fetch(
+              `${process.env.BE_API_URL}api/sitemap`
+            );
+
+            if (response.status !== 200) {
+              console.error(response.json());
+              return [];
+            }
+
+            const res: any = await response.json();
+            const arc = res.route.map((item: any) => ({
+              url: `/blog/${item}`,
+              priority: 0.5,
+              changefreq: "weekly",
+              lastmod: new Date().toISOString(),
+            }));
+            return arc;
+          } catch (error) {
+            return [];
+          }
+        },
+      },
+    },
+    exclude: ["/login"],
+  },
   robots: {
     groups: [
       {
@@ -51,7 +89,17 @@ export default defineNuxtConfig({
         disallow: ["/login"],
         comment: ["Disabled specific URL"],
       },
+      {
+        userAgent: "*",
+        disallow: ["/*?u=", "/*?d="],
+        comment: ["Disabled query string"],
+      },
+      {
+        userAgent: "*",
+        disallow: ["/package.json"],
+        comment: ["Disabled common files"],
+      },
     ],
-    sitemap: `${process.env.FE_APP_URL}sitemap.xml`,
+    sitemap: [`${process.env.FE_APP_URL}sitemap.xml`],
   },
 });
